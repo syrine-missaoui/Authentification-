@@ -1,0 +1,45 @@
+type User {
+    id: ID!
+    firstName: String
+    lastName: String
+    dateOfBirth: String
+    email: String
+    address: String
+    contactNumber: String
+    password: String
+    role: Role
+
+
+
+}
+
+
+enum Role {
+    ADMIN
+    USER
+    CANDIDAT
+    EMPLOYEE
+    RH
+}
+type Query{
+    getAllUsers:[User]
+}
+input UserInput {
+    firstName: String
+    lastName: String
+    dateOfBirth: String
+    email: String
+    address: String
+    contactNumber: String
+    password: String
+
+}
+
+type Mutation {
+
+    assignRole(id: String,role: Role): User
+    registerUser(userInput:UserInput):String
+
+}
+
+
